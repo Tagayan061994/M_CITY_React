@@ -1,25 +1,27 @@
-import React from 'react';
-import Button from "@material-ui/core/Button";
+import React from "react";
+import { Link } from "react-router-dom";
+import mcitylogo from "../../Resources/images/logos/manchester_city_logo.png";
 
-import mcitylogo from '../../Resources/images/logos/manchester_city_logo.png'
+export const CityLogo = props => {
 
-
-export const CityLogo = (props) => {
-
-    const template = <div
-    className="img-cover"
-    style={{
+  const template = (
+    <div
+      className="img_cover"
+      style={{
         width: props.width,
         height: props.height,
-        background: `url(${mcitylogo}) no-reapet`
-    }}
-    >
-    </div>
-    if(props.link){
-          <Link to={props.linkTo} className="link_logo">
-              {template}
-          </Link>
-    }else{
-        return template;
-    }
+        background: `url(${mcitylogo}) no-repeat`
+      }}
+    ></div>
+  )
+
+  if (props.link) {
+    return (
+      <Link to={props.linkTo} className="link_logo">
+        {template}
+      </Link>
+    )
+  } else {
+    return template;
+  }
 }
